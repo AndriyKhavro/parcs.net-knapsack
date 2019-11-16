@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Knapsack.Parcs": {
+      "commandName": "Project",
+      "commandLineArgs": "-p 1 --file \"testfiles/test30.txt\" --serverip 34.77.96.137"
+    }
+  }
+}

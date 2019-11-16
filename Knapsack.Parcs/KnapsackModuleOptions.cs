@@ -8,7 +8,7 @@ namespace Knapsack.Parcs
         [Option("file", Required = true, HelpText = "File name of knapsack values and weights")]
         public string FilePath { get; set; }
 
-        [Option("p", Required = true, HelpText = "Number of points.")]
+        [Option('p', Required = true, HelpText = "Number of points.")]
         public int PointCount { get; set; }
     }
 }

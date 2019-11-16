@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandLine;
+using System;
 
 namespace Knapsack.Parcs
 {
@@ -10,11 +11,12 @@ namespace Knapsack.Parcs
 
             if (args != null)
             {
-                if (!CommandLine.Parser.Default.ParseArguments(args, options))
-                {
-                    throw new ArgumentException($@"Cannot parse the arguments. Possible usages:
-{options.GetUsage()}");
-                }
+                var parserResult = Parser.Default.ParseArguments<KnapsackModuleOptions>(args);
+
+                parserResult
+                    .WithParsed(result => options = result)
+                    .WithNotParsed(errors =>
+                        throw new ArgumentException($@"Cannot parse the arguments. Possible usages:{options.GetUsage()}"));
             }
 
             (new KnapsackMainModule(options)).RunModule(options);
